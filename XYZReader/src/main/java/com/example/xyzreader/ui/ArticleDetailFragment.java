@@ -86,7 +86,7 @@ public class ArticleDetailFragment extends Fragment implements
         mTitleView = view.findViewById(R.id.article_title);
         mAuthorView = view.findViewById(R.id.article_author);
         mBodyView = view.findViewById(R.id.article_body);
-        mShareFab = view.findViewById(R.id.share_fab);
+        mShareFab = view.findViewById(R.id.fab);
         mToolbar = view.findViewById(R.id.detail_toolbar);
         mCollapsingToolbarLayout = view.findViewById(R.id.toolbar_layout);
 
@@ -105,7 +105,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         final String title = cursor.getString(ArticleLoader.Query.TITLE);
-        String author = Html.fromHtml(
+        final String author = Html.fromHtml(
                 DateUtils.getRelativeTimeSpanString(
                         cursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                         System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
@@ -156,10 +156,13 @@ public class ArticleDetailFragment extends Fragment implements
         mShareFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-                        .setType("text/plain")
-                        .setText(body)
-                        .getIntent(), getString(R.string.action_share)));
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, title + " " + author);
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+
             }
         });
     }

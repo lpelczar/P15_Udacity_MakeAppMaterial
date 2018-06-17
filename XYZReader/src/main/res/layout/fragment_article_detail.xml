@@ -120,16 +120,10 @@
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/share_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/action_share"
-        android:src="@drawable/ic_share"
-        app:elevation="4dp"
+        android:id="@+id/fab"
+        style="@style/FabStyle"
         app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|end"
-        android:focusable="true" />
+        android:src="@drawable/ic_share"
+        app:layout_anchorGravity="bottom|right|end" />
 
 </android.support.design.widget.CoordinatorLayout>
