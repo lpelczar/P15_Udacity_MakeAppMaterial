@@ -1,4 +1,5 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -16,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@color/photo_placeholder" />
+            android:background="@color/photo_placeholder"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/article_title"
@@ -26,7 +28,6 @@
             android:paddingLeft="16dp"
             android:paddingTop="16dp"
             android:paddingRight="16dp"
-            android:paddingBottom="4dp"
             android:textColor="@android:color/white"
             android:ellipsize="end"
             android:maxLines="4" />
@@ -36,12 +37,14 @@
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
             android:textColor="@android:color/white"
             android:maxLines="2"
             android:ellipsize="end" />
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
