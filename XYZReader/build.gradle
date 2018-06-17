@@ -34,4 +34,5 @@ dependencies {
     implementation files('libs/volley.jar')
 
     implementation "com.android.support:design:$androidSupportVersion"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
