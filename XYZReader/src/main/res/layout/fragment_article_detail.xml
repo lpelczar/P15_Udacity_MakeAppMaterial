@@ -25,6 +25,7 @@
             app:toolbarId="@+id/toolbar">
 
             <FrameLayout
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -75,7 +76,6 @@
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
-                android:fitsSystemWindows="true"
                 android:id="@+id/detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
