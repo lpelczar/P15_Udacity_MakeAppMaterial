@@ -184,4 +184,5 @@ public class ArticleDetailFragment extends Fragment implements
         fab.setRippleColor(lightVibrantColor);
         fab.setBackgroundTintList(ColorStateList.valueOf(vibrantColor));
     }
+
 }
