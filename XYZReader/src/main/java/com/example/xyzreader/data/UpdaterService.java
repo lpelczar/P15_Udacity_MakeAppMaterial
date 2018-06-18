@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class UpdaterService extends IntentService {
     private static final String TAG = "UpdaterService";
@@ -34,10 +35,9 @@ public class UpdaterService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Time time = new Time();
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo ni = cm.getActiveNetworkInfo();
+        NetworkInfo ni = Objects.requireNonNull(cm).getActiveNetworkInfo();
         if (ni == null || !ni.isConnected()) {
             Log.w(TAG, "Not online, not refreshing.");
             return;
