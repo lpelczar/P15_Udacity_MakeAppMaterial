@@ -166,12 +166,11 @@ public class ArticleDetailFragment extends Fragment implements
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(@NonNull Palette palette) {
                 int defaultColor = 0xFF333333;
-                int lightMutedColor = palette.getLightMutedColor(defaultColor);
                 int darkMutedColor = palette.getDarkMutedColor(defaultColor);
                 metaBar.setBackgroundColor(darkMutedColor);
                 if (mCollapsingToolbarLayout != null) {
-                    mCollapsingToolbarLayout.setContentScrimColor(lightMutedColor);
-                    mCollapsingToolbarLayout.setStatusBarScrimColor(lightMutedColor);
+                    mCollapsingToolbarLayout.setContentScrimColor(darkMutedColor);
+                    mCollapsingToolbarLayout.setStatusBarScrimColor(darkMutedColor);
                 }
                 updateBackground(mShareFab, palette);
                 updateStatusBarColor(darkMutedColor);
