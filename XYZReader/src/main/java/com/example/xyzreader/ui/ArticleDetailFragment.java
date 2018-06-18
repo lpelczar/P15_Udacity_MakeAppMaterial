@@ -21,6 +21,8 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -164,15 +166,24 @@ public class ArticleDetailFragment extends Fragment implements
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             public void onGenerated(@NonNull Palette palette) {
                 int defaultColor = 0xFF333333;
+                int lightMutedColor = palette.getLightMutedColor(defaultColor);
                 int darkMutedColor = palette.getDarkMutedColor(defaultColor);
                 metaBar.setBackgroundColor(darkMutedColor);
                 if (mCollapsingToolbarLayout != null) {
-                    mCollapsingToolbarLayout.setContentScrimColor(darkMutedColor);
-                    mCollapsingToolbarLayout.setStatusBarScrimColor(darkMutedColor);
+                    mCollapsingToolbarLayout.setContentScrimColor(lightMutedColor);
+                    mCollapsingToolbarLayout.setStatusBarScrimColor(lightMutedColor);
                 }
                 updateBackground(mShareFab, palette);
+                updateStatusBarColor(darkMutedColor);
             }
         });
+    }
+
+    private void updateStatusBarColor(int darkMutedColor) {
+        Window window = getActivity().getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(darkMutedColor);
     }
 
     private void updateBackground(FloatingActionButton fab, Palette palette) {
