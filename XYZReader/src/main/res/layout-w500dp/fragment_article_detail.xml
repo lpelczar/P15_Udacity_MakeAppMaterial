@@ -18,9 +18,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMargin="16dp"
-            app:expandedTitleMarginBottom="40dp"
-            app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
+            app:expandedTitleTextAppearance="@style/ExpandedTitleTextWide"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
