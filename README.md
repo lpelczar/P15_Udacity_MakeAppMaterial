@@ -1,6 +1,6 @@
 # Udacity Make app material
 
-Project 15: Make your app material - In this project, you’ll update the look and feel of an app to meet Material Design specifications using design elements, surfaces, and transitions across multiple form factors.
+Project 15: Make your app material - Transformed the user experience of a news reading app using Material Design principles. This includes consistent and meaningful use of Material Design UI components, fonts, color, motion and surfaces.
 
 ## Screenshots
 
